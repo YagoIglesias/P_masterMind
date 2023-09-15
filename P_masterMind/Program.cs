@@ -17,31 +17,42 @@ namespace masterMinde
         static void Main(string[] args)
         {
             //Création des variables pour stocker les couleurs
-            string red;
-            string green;
-            string blue;
-            string orange;
-            string black;
-            string white;
-            string magenta;
+            string red = "Rouge";
+            string green = "Vert";
+            string blue = "Bleu";
+            string orange = "Orange";
+            string black = "Noir";
+            string white = "Blanc";
+            string magenta = "Magenta";
+           
+            //creation du code 4 couleurs
+            Random code = new Random();
+            
+            //dans color on à la liste des couleurs
+            string[] color = {red, green, blue, orange, black, white, magenta};
+            //créer un numero alletoire entre 0-7
+            int c1 = code.Next(color.Length);
+            int c2 = code.Next(color.Length);
+            int c3 = code.Next(color.Length);
+            int c4 = code.Next(color.Length);
+
+            //test pour voir la création du code
+            /*Console.WriteLine("Le code couleur est : ");
+            Console.WriteLine($"{color[c1]} {color[c2]} {color[c3]} {color[c4]}");*/
 
             //Informations du jeu mistermind
             Console.WriteLine("Bienvenue sur Mastermind!");
-            Console.WriteLine("Couleurs possibles: RBVBONM");
             Console.WriteLine("Devine le code en 4 couleurs");
-            Console.WriteLine("Vous avez 10 essais");
-            //valeur des variables
-            red = "R";
-            green = "G";
-            blue = "B";
-            orange = "O";
-            black = "B";
-            white = "W";
-            magenta = "M";
-            //creation du code 4 couleurs
-            Random color = new Random(red, green, blue, orange, black, white, magenta);
+            Console.WriteLine("Couleurs possibles: Rouge, Bleu, Vert, Noir, Orange, Blanc, Magenta");
+            Console.WriteLine("Vous avez 10 essais pour reussir");
 
 
+
+
+
+
+
+            Console.ReadLine();
 
 
 

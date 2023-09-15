@@ -1,0 +1,8 @@
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\bin\Debug\P_masterMind.exe.config
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\bin\Debug\P_masterMind.exe
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\bin\Debug\P_masterMind.pdb
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\obj\Debug\P_masterMind.csproj.AssemblyReference.cache
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\obj\Debug\P_masterMind.csproj.SuggestedBindingRedirects.cache
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\obj\Debug\P_masterMind.csproj.CoreCompileInputs.cache
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\obj\Debug\P_masterMind.exe
+C:\Users\pw17kto\Desktop\Programmation\P_masterMind\P_masterMind\obj\Debug\P_masterMind.pdb
