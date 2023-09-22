@@ -28,21 +28,32 @@ namespace masterMinde
             int tries = 0;
             //var Code utilisateur
             string answer = "";
-           
+            //code aleatoir avec les 4 couleurs ensembles
+            string code4 = "";
+
             //creation du code 4 couleurs
             Random code = new Random();
-            
+
             //dans color on à la liste des couleurs
-            string[] color = {red, green, blue, orange, black, white, magenta};
-            //créer un numero alletoire entre 0-6
+            string[] color = { red, green, blue, orange, black, white, magenta };
+            //créer un numero alletoire entre 0-6 (pour les couleurs)
             int c1 = code.Next(color.Length);
             int c2 = code.Next(color.Length);
             int c3 = code.Next(color.Length);
             int c4 = code.Next(color.Length);
 
+            //tableau
+            string[] tabRandom = {color[c1], color[c2], color[c3], color[c4]};
+            
+
+            //code avec les 4 couleurs aleatoires ensembles
+            code4 = tabRandom[0] + tabRandom[1] + tabRandom[2] + tabRandom[3];
             //test pour voir la création du code
-            Console.WriteLine("Le code couleur est : ");
-            Console.WriteLine($"{color[c1]} {color[c2]} {color[c3]} {color[c4]}");
+            Console.Write("Le code couleur est : ");
+            //Console.WriteLine($"{color[c1]} {color[c2]} {color[c3]} {color[c4]}");
+            Console.WriteLine(code4);
+            //espace entre reponse et instruction
+            Console.WriteLine();
 
             //Informations du jeu mistermind
             Console.WriteLine("Bienvenue sur Mastermind!");
@@ -55,16 +66,22 @@ namespace masterMinde
             {
                 tries++;
                 Console.WriteLine($"Essai {tries}");
+                Console.Write("Inserez votre selection de couleurs: ");
                 answer = Console.ReadLine();
-
-                if (answer != color[c1] || answer != color[c2] || answer != color[c3] || answer != color[c4])
+                //espace
+                Console.WriteLine();
+                if (answer != code4)
                 {
                     Console.WriteLine("Auccune couleur trouvée");
 
                 }
-                else if (answer == color[c1] || answer != color[c2] || answer != color[c3] || answer != color[c4])
+                /*else if ( )
                 {
-                    Console.WriteLine($"{color[c1]} OK");
+                    Console.WriteLine($"Une couleur correcte: {color[c1]}");
+                }*/
+                else if (answer == code4)
+                {
+                    Console.WriteLine($"{code4} OK vous avez gagne");
                 }
                 
 
