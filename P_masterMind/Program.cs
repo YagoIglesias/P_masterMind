@@ -26,32 +26,41 @@ namespace masterMinde
             string magenta = "Magenta";
             //Var pour conter les essais
             int tries = 0;
-            //var Code utilisateur
+            //choix premier couleur par l'utilisateur
+            string userColor1 = "";
+            //deuxieme couleur
+            string userColor2 = "";
+            //troisieme 
+            string userColor3 = "";
+            //quatrieme
+            string userColor4 = "";
+            //var Code utilisateur entier
             string answer = "";
             //code aleatoir avec les 4 couleurs ensembles
-            string code4 = "";
+            string code = "";
+            //var rejoue
+            string replay = "";
 
-            //creation du code 4 couleurs
-            Random code = new Random();
+            //creation du code 4 couleurs avec un random
+            Random random = new Random();
 
-            //dans color on à la liste des couleurs
-            string[] color = { red, green, blue, orange, black, white, magenta };
+            //dans le tableau color on à la liste des couleurs
+            string[] colors = { red, green, blue, orange, black, white, magenta };
             //créer un numero alletoire entre 0-6 (pour les couleurs)
-            int c1 = code.Next(color.Length);
-            int c2 = code.Next(color.Length);
-            int c3 = code.Next(color.Length);
-            int c4 = code.Next(color.Length);
+            int color1 = random.Next(colors.Length);
+            int color2 = random.Next(colors.Length);
+            int color3 = random.Next(colors.Length);
+            int color4 = random.Next(colors.Length);
 
-            //tableau
-            string[] tabRandom = {color[c1], color[c2], color[c3], color[c4]};
-            
+            //tableau code random
+            string[] randomCode = {colors[color1], colors[color2], colors[color3], colors[color4]};
 
             //code avec les 4 couleurs aleatoires ensembles
-            code4 = tabRandom[0] + tabRandom[1] + tabRandom[2] + tabRandom[3];
+            code = randomCode[0] + randomCode[1] + randomCode[2] + randomCode[3];
             //test pour voir la création du code
             Console.Write("Le code couleur est : ");
-            //Console.WriteLine($"{color[c1]} {color[c2]} {color[c3]} {color[c4]}");
-            Console.WriteLine(code4);
+            //Console.WriteLine($"{colors[color1]} {colors[color2]} {colors[color3]} {colors[color4]}");
+            Console.WriteLine(code);
             //espace entre reponse et instruction
             Console.WriteLine();
 
@@ -61,32 +70,69 @@ namespace masterMinde
             Console.WriteLine("Couleurs possibles: Rouge, Bleu, Vert, Noir, Orange, Blanc, Magenta");
             Console.WriteLine("Vous avez 10 essais pour reussir\n");
 
-            //Boucle pour conter le nombre d'essais
             do
             {
-                tries++;
-                Console.WriteLine($"Essai {tries}");
-                Console.Write("Inserez votre selection de couleurs: ");
-                answer = Console.ReadLine();
-                //espace
-                Console.WriteLine();
-                if (answer != code4)
-                {
-                    Console.WriteLine("Auccune couleur trouvée");
 
-                }
-                /*else if ( )
+                //Boucle pour conter le nombre d'essais
+                do
                 {
-                    Console.WriteLine($"Une couleur correcte: {color[c1]}");
-                }*/
-                else if (answer == code4)
-                {
-                    Console.WriteLine($"{code4} OK vous avez gagne");
-                }
-                
+                    tries++;
+                    Console.WriteLine($"Essai {tries}");
+                    Console.WriteLine("Inserez votre selection de couleurs");
+                    Console.Write("Premier couleur: ");
+                    userColor1 = Console.ReadLine();
+                    Console.Write("Deuxieme couleur: ");
+                    userColor2 = Console.ReadLine();
+                    Console.Write("Troisieme couleur: ");
+                    userColor3 = Console.ReadLine();
+                    Console.Write("Quatrieme couleur: ");
+                    userColor4 = Console.ReadLine();
+                    //code entre au complet
+                    answer = userColor1 + userColor2 + userColor3 + userColor4;
+                    //retour à la ligne
+                    Console.WriteLine();
+                    //verifier si le code est correct
+                    if (answer == code)
+                    {
+                        Console.WriteLine($"{code} OK, vous avez gagne !");
+                        //si l'utilisateur trouve le code la jeu s'arret
+                        break;
+
+                    }
+                    //Verifier si les couleurs sont presentes dans le code 
+                    else if (userColor1 == randomCode[0] || userColor1 == randomCode[1] || userColor1 == randomCode[2] || userColor1 == randomCode[3])
+                    {
+                        Console.WriteLine("Premier couleur est dans le code");
+                    }
+                    if (userColor2 == randomCode[0] || userColor2 == randomCode[1] || userColor2 == randomCode[2] || userColor2 == randomCode[3])
+                    {
+                        Console.WriteLine("Deuxieme couleur est dans le code");
+
+                    }
+                    if (userColor3 == randomCode[0] || userColor3 == randomCode[1] || userColor3 == randomCode[2] || userColor3 == randomCode[3])
+                    {
+                        Console.WriteLine("Troisieme couleur est dans le code");
+                    }
+                    if (userColor4 == randomCode[0] || userColor4 == randomCode[1] || userColor4 == randomCode[2] || userColor4 == randomCode[3])
+                    {
+                        Console.WriteLine("Quatrieme couleur est dans le code");
+                    }
+                    //Verifier si auccune couleur trouvée
+                    else if (answer != code)
+                    {
+                        Console.WriteLine("Auccune couleur trouvée\n");
+
+                    }
 
 
-            } while (tries <= 9);
+                    //Continue tant que l'utilisateur n'a pas gagne
+                } while (tries <= 9);
+                Console.WriteLine("Voulez-vous rejouer ?");
+                Console.WriteLine("Oui/Non");
+                replay = Console.ReadLine().ToLower()
+                    ;
+
+            } while (replay == "oui");
 
             
 
