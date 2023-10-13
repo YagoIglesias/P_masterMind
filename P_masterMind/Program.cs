@@ -54,7 +54,7 @@ namespace masterMinde
 
             //tableau code random
             string[] randomCode = {colors[color1], colors[color2], colors[color3], colors[color4]};
-            randomCode = new string[] { green , magenta , magenta , white};
+
 
             //code avec les 4 couleurs aleatoires ensembles
             code = randomCode[0] + randomCode[1] + randomCode[2] + randomCode[3];
@@ -177,7 +177,7 @@ namespace masterMinde
  
 
 
-                    //Continue tant que l'utilisateur n'a pas gagne
+                   //Continue tant que l'utilisateur n'a pas gagne
                 } while (tries <= 9);
                 Console.WriteLine("Voulez-vous rejouer ?");
                 Console.WriteLine("Oui/Non");
@@ -186,8 +186,8 @@ namespace masterMinde
 
             } while (replay == "oui");
 
-            
 
+            
 
 
 
