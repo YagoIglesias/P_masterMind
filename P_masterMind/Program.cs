@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 ///ETML
 ///Auteur : Yago Iglesias Rodriguez
 ///Date   : 08.09.2023
-///Description : Création du masterminde en C#
+///Description : Création du masterminde en C# mode console
 
 
 namespace masterMinde
@@ -44,28 +45,6 @@ namespace masterMinde
             //creation du code 4 couleurs avec un random
             Random random = new Random();
 
-            //dans le tableau color on à la liste des couleurs
-            string[] colors = { red, green, blue, orange, black, white, magenta };
-            //créer un numero alletoire entre 0-6 (pour les couleurs)
-            int color1 = random.Next(colors.Length);
-            int color2 = random.Next(colors.Length);
-            int color3 = random.Next(colors.Length);
-            int color4 = random.Next(colors.Length);
-
-            //tableau code random
-            string[] randomCode = {colors[color1], colors[color2], colors[color3], colors[color4]};
-
-
-            //code avec les 4 couleurs aleatoires ensembles
-            code = randomCode[0] + randomCode[1] + randomCode[2] + randomCode[3];
-            
-            //test pour voir la création du code
-            //Console.Write("Le code couleur est : ");
-            //Console.WriteLine($"{colors[color1]} {colors[color2]} {colors[color3]} {colors[color4]}");
-            Console.WriteLine(code);
-            //espace entre reponse et instruction
-            Console.WriteLine();
-
             //Informations du jeu mistermind
             Console.WriteLine("Bienvenue sur Mastermind!");
             Console.WriteLine("Devine le code en 4 couleurs");
@@ -75,14 +54,29 @@ namespace masterMinde
             //boucle pour relancer une partie
             do
             {
+                //dans le tableau colors on à la liste des couleurs
+                string[] colors = { red, green, blue, orange, black, white, magenta };
+                //créer un numero alletoire entre 0-6 (pour les couleurs)
+                int color1 = random.Next(colors.Length);
+                int color2 = random.Next(colors.Length);
+                int color3 = random.Next(colors.Length);
+                int color4 = random.Next(colors.Length);
+
+                //tableau code random
+                string[] randomCode = { colors[color1], colors[color2], colors[color3], colors[color4] };
+
+                //code avec les 4 couleurs aleatoires ensembles
+                code = randomCode[0] + randomCode[1] + randomCode[2] + randomCode[3];
+                //afficher le code secret 
+                Console.WriteLine(code);
                 //restart le conteur d'essais
                 tries = 0;
                 //Boucle pour conter le nombre d'essais
                 do
                 {
-                    
                     tries++;
                     Console.WriteLine($"Essai {tries}");
+                    //demander les couleurs à l'utilisateur une par une 
                     Console.WriteLine("Inserez votre selection de couleurs");
                     Console.Write("Premier couleur: ");
                     userColor1 = Console.ReadLine().ToLower();
@@ -99,7 +93,7 @@ namespace masterMinde
                     //verifier si le code est correct
                     if (answer == code)
                     {
-                        Console.WriteLine($"{code} OK, vous avez gagne !\n");
+                        Console.WriteLine($"{code} Bravo vous avez gagne !\n");
                         //si l'utilisateur trouve le code la jeu s'arret
                         break;
 
@@ -123,6 +117,11 @@ namespace masterMinde
                                 good++;
                                 
                             }
+
+
+
+
+
                                                                                    
                         }
                         if (userColor2 == randomCode[0] || userColor2 == randomCode[1] || userColor2 == randomCode[2] || userColor2 == randomCode[3])
@@ -168,26 +167,22 @@ namespace masterMinde
                         {
                             Console.WriteLine("Aucune couleur trouvée\n");
                         }
+
                         //affichage des couleurs correctes
                         Console.WriteLine($"Ok:{good}");
                         //affichage des couleurs fauses
-                        Console.WriteLine($"Mauvaise possition:{badPosition}");
+                        Console.WriteLine($"Mauvaise possition:{badPosition}\n");
                     }
-                    
- 
-
 
                    //Continue tant que l'utilisateur n'a pas gagne
                 } while (tries <= 9);
                 Console.WriteLine("Voulez-vous rejouer ?");
                 Console.WriteLine("Oui/Non");
                 replay = Console.ReadLine().ToLower();
-                    
 
             } while (replay == "oui");
 
 
-            
 
 
 
